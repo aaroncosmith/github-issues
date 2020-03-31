@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Issues from "./Issues";
+import { Link } from 'react-router-dom';
 
 class IssueList extends Component {
     state = {
@@ -22,7 +22,10 @@ class IssueList extends Component {
         return (
             <ul>
                 {issues.map(issue => (
-                    <Issues key={issue.id} issue={issue} />
+                    <li key={issue.id}>
+                        {issue.title} { ": " }
+                        <Link to={`/issue/${issue.number}`}>View Issue</Link>
+                    </li>
                 ))}
             </ul>
         )
