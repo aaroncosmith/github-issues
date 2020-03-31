@@ -8,13 +8,13 @@ class IssueDetail extends Component {
 
     async componentDidMount() {
         const { issue_number } = this.props.match.params;
-        const issueDetails = fetch(`https://api.github.com/repos/snes9xgit/snes9x/issues/${issue_number}`)
+        fetch(`https://api.github.com/repos/snes9xgit/snes9x/issues/${issue_number}`)
             .then(res => res.json())
             .then((result) => {
                 this.setState({
-                    issueDetails
+                    issueDetails: result
                 });
-            console.log(issueDetails);
+            console.log(result);
             });
     }
 
